@@ -35,9 +35,12 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(system.defaultworkingdirectory)'
-    Contents: '**/*.dll','Dockerfile'
-    TargetFolder: '$(build.artifactstagingdirectory)'
+    SourceFolder: '$(System.DefaultWorkingDirectory)'
+    Contents: |
+      **/*.dll
+      Dockerfile
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
