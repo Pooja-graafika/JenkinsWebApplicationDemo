@@ -33,13 +33,19 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+# - task: CopyFiles@2
+#   inputs:
+#     SourceFolder: '$(System.DefaultWorkingDirectory)'
+#     Contents: |
+#       **/*.dll
+#       Dockerfile
+#     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)'
-    Contents: |
-      **/*.dll
-      Dockerfile
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    SourceFolder: '''$(System.DefaultWorkingDirectory)'''
+    Contents: '**'
+    TargetFolder: '''$(Build.ArtifactStagingDirectory)'''
 
 - task: PublishBuildArtifacts@1
   inputs:
