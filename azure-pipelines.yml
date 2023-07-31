@@ -38,8 +38,15 @@ steps:
     SourceFolder: '$(System.DefaultWorkingDirectory)'
     Contents: |
       **/*.dll
-      Dockerfile
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '**/Dockerfile'
+    TargetFolder: '$(System.DefaultWorkingDirectory)/JenkinsWebApplicationDemo/bin/Debug/net6.0'
+
+
 
 - task: PublishBuildArtifacts@1
   inputs:
