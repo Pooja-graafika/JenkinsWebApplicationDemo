@@ -52,17 +52,10 @@ steps:
 #     Contents: '**/Dockerfile'
 #     TargetFolder: '$(System.DefaultWorkingDirectory)/JenkinsWebApplicationDemo/bin/Debug/net6.0'    
 
-# - task: Docker@2
-#   inputs:
-#     containerRegistry: 'docker'
-#     repository: 'poojajeeva/azuredotnet'
-#     command: 'buildAndPush'
-#     Dockerfile: '**/Dockerfile'
-    
 - task: Docker@2
   inputs:
     containerRegistry: 'docker'
     repository: 'poojajeeva/azuredotnet'
     command: 'buildAndPush'
-    Dockerfile: '**/JenkinsWebApplicationDemo/Dockerfile'
-    buildContext: '*'
+    Dockerfile: '**/Dockerfile'
+    
