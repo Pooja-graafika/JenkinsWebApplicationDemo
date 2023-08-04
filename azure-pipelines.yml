@@ -45,16 +45,18 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-
-# - task: CopyFiles@2
+ 
+# - task: DownloadBuildArtifacts@1
 #   inputs:
-#     SourceFolder: '$(Build.SourcesDirectory)'
-#     Contents: '**/Dockerfile'
-#     TargetFolder: '$(System.DefaultWorkingDirectory)/JenkinsWebApplicationDemo/bin/Debug/net6.0'    
+#     buildType: 'current'
+#     downloadType: 'single'
+#     artifactName: 'drop'
+#     downloadPath: '$(Agent.WorkFolder)'
 - task: DownloadBuildArtifacts@1
   inputs:
     buildType: 'current'
-    downloadType: 'specific'
+    downloadType: 'single'
+    artifactName: 'drop'
     downloadPath: '$(System.ArtifactsDirectory)'
 - task: Docker@2
   inputs:
