@@ -51,7 +51,11 @@ steps:
 #     SourceFolder: '$(Build.SourcesDirectory)'
 #     Contents: '**/Dockerfile'
 #     TargetFolder: '$(System.DefaultWorkingDirectory)/JenkinsWebApplicationDemo/bin/Debug/net6.0'    
-
+- task: DownloadBuildArtifacts@1
+  inputs:
+    buildType: 'current'
+    downloadType: 'specific'
+    downloadPath: '$(System.ArtifactsDirectory)'
 - task: Docker@2
   inputs:
     containerRegistry: 'docker'
