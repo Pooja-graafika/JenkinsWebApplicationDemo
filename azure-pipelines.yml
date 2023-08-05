@@ -79,7 +79,7 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az aks get-credentials --resource-group myAKSRG --name myAKSCluster
-      kubectl apply -f path-to-k8s-yaml-file/kubernetes-deployment.yaml
+      kubectl apply -f deployment.yaml
 
 
 # - bash: |
