@@ -52,7 +52,9 @@ steps:
     buildType: 'current'
     downloadType: 'single'
     artifactName: 'drop'
-    itemPattern: '**/bin/Release/net6.0/JenkinsWebApplicationDemo.dll'
+    itemPattern: |
+      '**/bin/Release/net6.0/JenkinsWebApplicationDemo.dll'
+      '**deployment.yaml'
     downloadPath: '$(Agent.WorkFolder)'
 
 - task: Docker@2
