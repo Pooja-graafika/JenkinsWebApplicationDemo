@@ -64,22 +64,22 @@ steps:
       $(Build.BuildId)
       latest
 
-# - task: KubernetesManifest@1
-#   inputs:
-#     action: 'deploy'
-#     connectionType: 'kubernetesServiceConnection'
-#     kubernetesServiceConnection: 'aks'
-#     namespace: 'default'
-#     manifests: 'deployment.yaml'  
-
-- task: AzureCLI@2
+- task: KubernetesManifest@1
   inputs:
-    azureSubscription: 'Free Trial(e2e1700a-ebf0-4231-8c5d-f97bb318b6f4)'
-    scriptType: 'pscore'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      az aks get-credentials --resource-group myAKSRG --name myAKSCluster
-      kubectl apply -f deployment.yaml
+    action: 'deploy'
+    connectionType: 'kubernetesServiceConnection'
+    kubernetesServiceConnection: 'aks'
+    namespace: 'default'
+    manifests: 'deployment.yaml'  
+
+# - task: AzureCLI@2
+#   inputs:
+#     azureSubscription: 'Free Trial(e2e1700a-ebf0-4231-8c5d-f97bb318b6f4)'
+#     scriptType: 'pscore'
+#     scriptLocation: 'inlineScript'
+#     inlineScript: |
+#       az aks get-credentials --resource-group myAKSRG --name myAKSCluster
+#       kubectl apply -f deployment.yaml
 
 
 # - bash: |
