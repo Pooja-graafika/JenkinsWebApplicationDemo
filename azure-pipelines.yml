@@ -37,7 +37,7 @@ steps:
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)'
     Contents: |
-      **/*.dll
+      **/*
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
@@ -72,18 +72,4 @@ steps:
     namespace: 'default'
     manifests: 'deployment.yaml'  
 
-# - task: AzureCLI@2
-#   inputs:
-#     azureSubscription: 'Free Trial(e2e1700a-ebf0-4231-8c5d-f97bb318b6f4)'
-#     scriptType: 'pscore'
-#     scriptLocation: 'inlineScript'
-#     inlineScript: |
-#       az aks get-credentials --resource-group myAKSRG --name myAKSCluster
-#       kubectl apply -f deployment.yaml
 
-
-# - bash: |
-#    kubectl apply -f kubernetes-deployment.yaml
-   
-#   workingDirectory: deployment.yaml
-#   displayName: 'Bash Script'
