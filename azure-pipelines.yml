@@ -64,12 +64,18 @@ steps:
       $(Build.BuildId)
       latest
 
-- task: KubernetesManifest@1
-  inputs:
-    action: 'deploy'
-    connectionType: 'kubernetesServiceConnection'
-    kubernetesServiceConnection: 'aks'
-    namespace: 'default'
-    manifests: '**/deployment.yaml'  
+# - task: KubernetesManifest@1
+#   inputs:
+#     action: 'deploy'
+#     connectionType: 'kubernetesServiceConnection'
+#     kubernetesServiceConnection: 'aks'
+#     namespace: 'default'
+#     manifests: '**/deployment.yaml'  
 
+- task: KubernetesManifest@1
+  displayName: deploy
+  inputs:
+    kubernetesServiceConnection: aks
+    namespace: default
+    manifests: deployment.yaml
 
