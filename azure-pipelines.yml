@@ -38,6 +38,7 @@ steps:
     SourceFolder: '$(System.DefaultWorkingDirectory)'
     Contents: |
       **/*.dll
+      **/deployment.yaml
     TargetFolder: '$(Agent.WorkFolder)'
 
 - task: PublishBuildArtifacts@1
@@ -70,6 +71,6 @@ steps:
     connectionType: 'kubernetesServiceConnection'
     kubernetesServiceConnection: 'aks'
     namespace: 'default'
-    manifests: 'deployment.yaml'  
+    manifests: '**/deployment.yaml'  
 
 
