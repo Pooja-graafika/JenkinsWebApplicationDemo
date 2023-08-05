@@ -51,7 +51,7 @@ steps:
     buildType: 'current'
     downloadType: 'single'
     artifactName: 'drop'
-    itemPattern: '**/**/**/**/JenkinsWebApplicationDemo.dll'
+    itemPattern: '**/**/**/net6.0/JenkinsWebApplicationDemo.dll'
     downloadPath: '$(Agent.WorkFolder)'
 
 # - task: DownloadBuildArtifacts@1
