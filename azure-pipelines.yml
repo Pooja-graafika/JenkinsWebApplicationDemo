@@ -73,6 +73,6 @@ steps:
     connectionType: 'kubernetesServiceConnection'
     kubernetesServiceConnection: 'aks'
     namespace: 'default'
-    manifests: '**/deployment.yaml'  
+    manifests: 'D:\a\1\s\deployment.yaml'  
 
 
