@@ -54,12 +54,6 @@ steps:
     itemPattern: '**/bin/Release/net6.0/JenkinsWebApplicationDemo.dll'
     downloadPath: '$(Agent.WorkFolder)'
 
-# - task: DownloadBuildArtifacts@1
-#   inputs:
-#     buildType: 'current'
-#     downloadType: 'single'
-#     artifactName: 'drop'
-#     downloadPath: '$(Build.ArtifactStagingDirectory)'
 - task: Docker@2
   inputs:
     containerRegistry: 'docker'
@@ -76,4 +70,6 @@ steps:
     connectionType: 'kubernetesServiceConnection'
     kubernetesServiceConnection: 'aks'
     namespace: 'default'
-    manifests: 'deployment.yaml'    
+    manifests: '**/deployment.yaml'  
+
+
