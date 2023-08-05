@@ -66,4 +66,7 @@ steps:
     repository: 'poojajeeva/azuredotnet'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+    tags: |
+      $(Build.BuildId)
+      latest
     
