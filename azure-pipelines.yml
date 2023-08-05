@@ -46,19 +46,19 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
  
-- task: DownloadBuildArtifacts@1
-  inputs:
-    buildType: 'current'
-    downloadType: 'single'
-    artifactName: 'drop'
-    downloadPath: '$(Agent.WorkFolder)'
-
 # - task: DownloadBuildArtifacts@1
 #   inputs:
 #     buildType: 'current'
 #     downloadType: 'single'
 #     artifactName: 'drop'
-#     downloadPath: '$(System.ArtifactsDirectory)'
+#     downloadPath: '$(Agent.WorkFolder)'
+
+- task: DownloadBuildArtifacts@1
+  inputs:
+    buildType: 'current'
+    downloadType: 'single'
+    artifactName: 'drop'
+    downloadPath: '$(Build.ArtifactStagingDirectory)'
 - task: Docker@2
   inputs:
     containerRegistry: 'docker'
