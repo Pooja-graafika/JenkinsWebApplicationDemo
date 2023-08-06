@@ -74,7 +74,7 @@ steps:
     kubernetesServiceConnection: 'aks'
     namespace: 'default'
     manifests: |
-      'D:\a\1\a\deployment.yaml'
+      '**/deployment.yaml'
       
 
 
