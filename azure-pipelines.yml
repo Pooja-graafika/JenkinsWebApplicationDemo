@@ -73,8 +73,7 @@ steps:
     connectionType: 'kubernetesServiceConnection'
     kubernetesServiceConnection: 'aks'
     namespace: 'default'
-    manifests: |
-      **/*.yaml
+    manifests: '*.yaml'
       
 
 
